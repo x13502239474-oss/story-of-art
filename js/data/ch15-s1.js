@@ -21,7 +21,7 @@ window.CH15.sections.push(
 
 <div class="aside-note">
   <span class="aside-note__t">本章读法</span>
-  以下每一节，都先给出编者对历史条件与形式问题的梳理（<strong>导读</strong>），再嵌入贡布里希本人的段落（<strong>原文</strong>，以酒红色引文块标出，逐字照录三联版范景中译本）。原著与补充分开排列，是我们对这本书最基本的尊重：<strong>你可以随时分辨哪一句是贡布里希，哪一句是我们。</strong>
+  以下每一节，都先给出编者对历史条件与形式问题的梳理（<strong>导读</strong>），再嵌入贡布里希本人的段落（<strong>原文</strong>，以酒红色引文块标出，逐字照录范景中译本）。原著与补充分开排列，是为了让读者随时分辨<strong>哪一句是贡布里希，哪一句是编者的判断</strong>。
 </div>
 
 <h3>本章覆盖的图版</h3>
