@@ -274,7 +274,16 @@
     document.addEventListener("scroll",upd,{passive:true}); upd();
   }
 
-  window.SGA = {$, $$, esc, store, figureHTML, renderTokens, openLightbox, toast, mountTopbar, mountSearch, mountProgress, buildIndex};
+  /* 副题与年代拼接：内容重复时只留一份 */
+  function duo(a,b){
+    a=String(a==null?"":a).trim(); b=String(b==null?"":b).trim();
+    if(!a) return b; if(!b) return a;
+    if(a===b || a.indexOf(b)>=0) return a;
+    if(b.indexOf(a)>=0) return b;
+    return a+" · "+b;
+  }
+
+  window.SGA = {$, $$, esc, duo, store, figureHTML, renderTokens, openLightbox, toast, mountTopbar, mountSearch, mountProgress, buildIndex};
 
   document.addEventListener("DOMContentLoaded", ()=>{
     mountTopbar(); mountSearch(); ensureLightbox();
