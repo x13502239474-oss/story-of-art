@@ -15,7 +15,7 @@
           <span class="nav-item__no">${String(c.no).padStart(2,"0")}</span>${esc(c.t)}</a>`;
         return `<div class="nav-item nav-item--soon"${c.no===chNo?' style="color:var(--burgundy);border-left:2px solid var(--burgundy);padding-left:8px;background:rgba(107,31,42,.04)"':''}>
           <span><span class="nav-item__no">${String(c.no).padStart(2,"0")}</span>${esc(c.t)}</span>
-          <span class="nav-item__soon">待写</span></div>`;
+          <span class="nav-item__soon">未收</span></div>`;
       }).join("");
       return `<div class="nav-group">
         <div class="nav-group__t">${esc(era.name)}</div>${items}</div>`;
@@ -32,7 +32,7 @@
 
   /* ---------- 章节未开放 ---------- */
   if(!data){
-    document.title = `第${meta.no}章 ${meta.t} · 尚未撰写`;
+    document.title = `第${meta.no}章 ${meta.t} · 未收录`;
     $("#topTitle").innerHTML = `第${meta.no}章 ${esc(meta.t)}<span>${esc(meta.sub)}</span>`;
     $("#railR").innerHTML = "";
     $("#article").innerHTML = `
@@ -42,11 +42,11 @@
         <p class="article__sub">${esc(meta.sub)}</p>
       </div>
       <div class="aside-note" style="margin-top:0">
-        <span class="aside-note__t">状态：尚未撰写</span>
-        这一章还没有写。我们不做「先占位、后补内容」的事——一个只有三句简介和几张图的页面，对读者没有价值，也会让它旁边的章节显得可疑。
+        <span class="aside-note__t">状态：未收录</span>
+        这一章的内容尚未收录。
       </div>
       <p>本章将按与第15章相同的体例撰写：历史背景、艺术发展的具体变化、核心风格的技术分析、代表艺术家与作品细读、艺术史意义、与前后时期的联系，并配以本书图版与原著摘录。</p>
-      <p>本章的正文正在撰写中。已完成的部分可以直接阅读，未完成的章节在目录里标为「待写」。</p>
+      <p>可以先读相邻的章节，或到<a href="gallery.html" style="border-bottom:1px solid var(--line-strong)">图版画廊</a>按图浏览。</p>
       <div class="chip-row">
         <a class="chip" href="read.html?id=15">去读第15章</a>
         <a class="chip" href="index.html">回到时间轴</a>
@@ -57,15 +57,15 @@
 
   /* ---------- 顶部与页面标题 ---------- */
   document.title = `第${data.no}章 ${data.title} · 艺术的故事`;
-  $("#topTitle").innerHTML = `第${data.no}章 ${esc(data.title)}<span>${esc(data.sub)}</span>`;
+  $("#topTitle").innerHTML = `第${data.no}章 ${esc(data.title)}<span>${esc(SGA.duo(data.sub,data.years))}</span>`;
   $("#btnGallery").href = `gallery.html?ch=${data.no}`;
 
   /* ---------- 正文 ---------- */
   const head = `
     <div class="article__head">
-      <div class="article__no">第 ${data.no} 章 · ${esc(data.eraName)} · ${esc(data.years)}</div>
+      <div class="article__no">第 ${data.no} 章 · ${esc(data.eraName)}</div>
       <h1 class="article__title">${esc(data.title)}</h1>
-      <p class="article__sub">${esc(data.sub)}</p>
+      <p class="article__sub">${esc(SGA.duo(data.sub,data.years))}</p>
       <p class="article__lede">${esc(data.lede)}</p>
       <div style="display:flex;gap:16px;flex-wrap:wrap;margin-top:22px;font-family:var(--sans);font-size:11px;letter-spacing:.14em;color:var(--ink-faint)">
         <span>${esc(data.readTime)}</span><span>·</span><span>${data.sections.length} 节</span><span>·</span><span>图版 ${window.WORKS.filter(w=>w.ch===data.no).length} 幅</span>
@@ -89,15 +89,15 @@
     <div class="ch-end">
       <a href="${prev?`read.html?id=${prev.no}`:"index.html"}">
         <span class="ch-end__dir">← 上一章</span>
-        <span class="ch-end__t">${prev?`第${prev.no}章 ${esc(prev.t)}`:"回到时间轴"}${prev&&!prev.ready?"（待写）":""}</span>
+        <span class="ch-end__t">${prev?`第${prev.no}章 ${esc(prev.t)}`:"回到时间轴"}${prev&&!prev.ready?"（未收）":""}</span>
       </a>
       <a href="${next?`read.html?id=${next.no}`:"index.html"}" style="text-align:right">
         <span class="ch-end__dir">下一章 →</span>
-        <span class="ch-end__t">${next?`第${next.no}章 ${esc(next.t)}`:"回到时间轴"}${next&&!next.ready?"（待写）":""}</span>
+        <span class="ch-end__t">${next?`第${next.no}章 ${esc(next.t)}`:"回到时间轴"}${next&&!next.ready?"（未收）":""}</span>
       </a>
     </div>
     <p class="small" style="margin-top:26px;font-size:12px;color:var(--ink-faint);line-height:1.9">
-      本章正文由本站撰写；酒红色引文块中文字逐字引自贡布里希《艺术的故事》第${data.no}章（范景中译，三联版）。
+      本章正文由本站撰写；酒红色引文块中文字逐字引自贡布里希《艺术的故事》第${data.no}章（范景中译）。
       图版均取自本书插图，保留原书图号。作品著作权不属于本站，仅供个人阅读与研究使用。
     </p>`;
 
@@ -156,7 +156,7 @@
   };
 
   /* ---------- 最近阅读 ---------- */
-  store.pushRecent({type:"chapter", id:String(data.no), title:`第${data.no}章 ${data.title}`, sub:`${data.sub} · ${data.years}`, img:chCover, url:`read.html?id=${data.no}`});
+  store.pushRecent({type:"chapter", id:String(data.no), title:`第${data.no}章 ${data.title}`, sub:SGA.duo(data.sub,data.years), img:chCover, url:`read.html?id=${data.no}`});
 
   /* ---------- 目录抽屉 ---------- */
   const railL = $("#railL"), scrim = $("#scrim");
