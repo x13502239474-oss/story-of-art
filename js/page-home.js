@@ -13,7 +13,7 @@
         ${list.map(c=>`
           <a class="tl-item ${c.ready?"tl-item--live":"tl-item--soon"}" href="${c.ready?`read.html?id=${c.no}`:"#openChapter"}" ${c.ready?"":'data-soon="1"'}>
             <span class="tl-item__no">${String(c.no).padStart(2,"0")}</span><span class="tl-item__title">${esc(c.t)}</span>
-            ${c.ready?'<span class="tl-item__badge">已开放</span>':'<span class="tl-item__badge tl-item__badge--soon">待写</span>'}
+            ${c.ready?`<span class="tl-item__badge">${[15,16].includes(c.no)?"精读":"导读"}</span>`:'<span class="tl-item__badge tl-item__badge--soon">待写</span>'}
           </a>`).join("")}
       </div>`;
     }).join("");
