@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>艺术的故事 · 西方艺术史数字阅读馆</title>
+<meta name="description" content="以 E. H. 贡布里希《艺术的故事》为骨架的西方艺术史数字阅读馆：原著摘录、编者导读与博物馆图版。">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%23241812'/%3E%3Ctext x='16' y='23' font-family='Georgia,serif' font-size='20' fill='%23d9bd8c' text-anchor='middle'%3EA%3C/text%3E%3C/svg%3E">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<div data-topbar></div>
+
+<!-- ============ 封面 ============ -->
+<header class="hero">
+  <div class="hero__bg">
+    <img src="img/ch15/fig200.jpg" alt="米开朗琪罗《创造亚当》，西斯廷礼拜堂天顶画局部" fetchpriority="high">
+  </div>
+  <div class="hero__inner">
+    <div class="hero__rule"></div>
+    <p class="hero__latin">The Story of Art · A Digital Reading Museum</p>
+    <h1>艺术的故事</h1>
+    <p class="eyebrow eyebrow--light" style="margin:0 0 20px">E. H. 贡布里希 · 范景中 译 · 三联版</p>
+    <p class="hero__lead">一座可以长期居住的西方艺术史博物馆。沿着原著二十八章的叙述，从洞窟壁画走到二十世纪的实验——二十八章全部写完：正文、图版展签、艺术家档案齐备，可按章读，也可按图看。</p>
+    <div class="hero__meta">
+      <span>艺术史 28 章</span>
+      <span>28 章 · 全部开放</span>
+      <span>图版取自本书插图</span>
+    </div>
+    <div style="margin-top:30px;display:flex;gap:14px;flex-wrap:wrap;align-items:center">
+      <a class="cta" href="read.html?id=15">进入第15章 · 和谐的获得 <span class="cta__arrow">→</span></a>
+      <a class="tbtn" href="#timeline" style="color:#e9dcc7">看时间轴</a>
+    </div>
+  </div>
+</header>
+
+<!-- ============ 体例说明 ============ -->
+<section class="section" style="padding-top:clamp(38px,5vw,62px);padding-bottom:0">
+  <div class="wrap">
+    <div class="colophon">
+      <div>
+        <h3>原著摘录</h3>
+        <p>酒红色引文块中的文字，逐字照录三联版（广西美术出版社，2008）范景中译本，标明所属章节。不增删、不改写。</p>
+      </div>
+      <div>
+        <h3>编者导读</h3>
+        <p>其余正文由本站独立撰写，用于补足历史背景、形式分析与前后脉络。凡属补充材料，均在文中标明「编者」。</p>
+      </div>
+      <div>
+        <h3>图版来源</h3>
+        <p>全部图版取自本书插图，保留原书图号（图186—图207），可与纸书对照。本站不声称拥有任何作品的著作权。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 时间轴 ============ -->
+<section class="section" id="timeline">
+  <div class="wrap">
+    <div class="sec-head">
+      <div>
+        <p class="eyebrow">Chronology</p>
+        <h2>二十八章的时间轴</h2>
+        <p class="small">章名与副题照录原著目录；分卷分组与年代区间为编者所加，便于导航。深色圆点表示该章已开放深度阅读。</p>
+      </div>
+      <a class="sec-link" href="read.html?id=15">从第15章开始 →</a>
+    </div>
+    <div class="timeline"><div class="tl-scroll" id="timelineScroll"></div></div>
+  </div>
+</section>
+
+<!-- ============ 已开放 ============ -->
+<section class="section section--tint">
+  <div class="wrap">
+    <div class="sec-head">
+      <div>
+        <p class="eyebrow">Now Reading</p>
+        <h2>正在开放的时期</h2>
+        <p class="small">先写完一章，再开下一章。二十八章现在全部写完：每章有历史背景、风格分析、作品细读与前后时代的关联，不写只有三句简介的空壳。</p>
+      </div>
+    </div>
+    <div id="openChapter"></div>
+  </div>
+</section>
+
+<!-- ============ 时期入口 ============ -->
+<section class="section">
+  <div class="wrap">
+    <div class="sec-head">
+      <div>
+        <p class="eyebrow">Periods</p>
+        <h2>按时期进入</h2>
+        <p class="small">六个编者分组，对应原著二十八章的推进顺序。点击进入该组第一章。</p>
+      </div>
+    </div>
+    <div class="periods" id="periodGrid"></div>
+  </div>
+</section>
+
+<!-- ============ 继续阅读 ============ -->
+<section class="section" id="continueSection" style="display:none;padding-top:0">
+  <div class="wrap">
+    <div class="sec-head">
+      <div>
+        <p class="eyebrow">Continue</p>
+        <h2>继续阅读</h2>
+      </div>
+      <a class="sec-link" href="study.html">书房 →</a>
+    </div>
+    <div id="continueList"></div>
+  </div>
+</section>
+
+<!-- ============ 艺术家 ============ -->
+<section class="section">
+  <div class="wrap">
+    <div class="sec-head">
+      <div>
+        <p class="eyebrow">Artists</p>
+        <h2>艺术家索引</h2>
+        <p class="small">重点人物的独立档案。灰色者为计划中，尚未撰写，不提供空壳页面。</p>
+      </div>
+      <a class="sec-link" href="artists.html">全部艺术家 →</a>
+    </div>
+    <div class="people" id="peopleList"></div>
+  </div>
+</section>
+
+<!-- ============ 作品 ============ -->
+<section class="section section--tint">
+  <div class="wrap">
+    <div class="sec-head">
+      <div>
+        <p class="eyebrow">Plates</p>
+        <h2>图版选览</h2>
+        <p class="small">点击任意图版进入放大查看；滚轮缩放，拖动平移。</p>
+      </div>
+      <a class="sec-link" href="gallery.html?ch=15">进入画廊 →</a>
+    </div>
+    <div class="plate-grid" id="plateGrid"></div>
+  </div>
+</section>
+
+<!-- ============ 书房 ============ -->
+<section class="section">
+  <div class="wrap wrap--narrow" style="text-align:center">
+    <p class="eyebrow">Your Study</p>
+    <h2 style="font-size:clamp(24px,3vw,32px);font-weight:400;letter-spacing:.1em;margin:12px 0 14px">书房 · 只存在你的浏览器里</h2>
+    <p class="small" style="max-width:34rem;margin:0 auto 26px">书签、最近阅读、阅读位置全部保存在本地存储中。不需要注册，不上传任何数据；换设备不会同步，清空浏览器数据即消失——这是我们有意为之。</p>
+    <a class="cta" href="study.html" style="border-color:var(--line-strong);color:var(--ink);background:none">打开书房 <span class="cta__arrow">→</span></a>
+  </div>
+</section>
+
+<footer class="foot">
+  <div class="foot__inner">
+    <div>
+      <div class="foot__t">艺术的故事</div>
+      <div class="foot__s">A DIGITAL READING MUSEUM</div>
+      <p class="small" style="color:rgba(240,229,211,.5);max-width:26rem;margin-top:16px">依据 E. H. 贡布里希《艺术的故事》（范景中译，三联版）编排。原著文字版权归原作者与译者；本站为非商业的个人阅读与研究项目。</p>
+    </div>
+    <div style="display:flex;gap:40px;flex-wrap:wrap;font-size:13px;line-height:2.4">
+      <div>
+        <div class="eyebrow eyebrow--light" style="margin-bottom:8px">阅读</div>
+        <a href="read.html?id=15">第15章</a><br>
+        <a href="artists.html">艺术家</a><br>
+        <a href="gallery.html">画廊</a>
+      </div>
+      <div>
+        <div class="eyebrow eyebrow--light" style="margin-bottom:8px">关于</div>
+        <a href="about.html">体例与来源</a><br>
+        <a href="study.html">书房</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script src="js/data/meta.js"></script>
+<script src="js/data/works-more.js"></script>
+<script src="js/data/ch01-03.js"></script>
+<script src="js/data/ch04-06.js"></script>
+<script src="js/data/ch07-09.js"></script>
+<script src="js/data/ch10-12.js"></script>
+<script src="js/data/ch13-14-17.js"></script>
+<script src="js/data/ch18-20.js"></script>
+<script src="js/data/ch21-23.js"></script>
+<script src="js/data/ch24-26.js"></script>
+<script src="js/data/ch27-28.js"></script>
+<script src="js/data/artists-more1.js"></script>
+<script src="js/data/artists-more2.js"></script>
+<script src="js/data/ch15.js"></script>
+<script src="js/data/ch15-s1.js"></script>
+<script src="js/data/ch15-s2.js"></script>
+<script src="js/data/ch15-s3.js"></script>
+<script src="js/data/ch16.js"></script>
+<script src="js/data/ch16-s1.js"></script>
+<script src="js/data/ch16-s2.js"></script>
+<script src="js/data/artists-deep.js"></script>
+<script src="js/core.js"></script>
+<script src="js/page-home.js"></script>
+</body>
+</html>
