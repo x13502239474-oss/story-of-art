@@ -12,7 +12,7 @@
       <p class="eyebrow eyebrow--light">艺术家档案</p>
       <h1>${esc(basic?basic.n:"未找到")}</h1>
       <p class="artist-hero__life">${esc(basic?basic.life:"")}</p>
-      <p class="artist-hero__intro">这位艺术家的档案尚未撰写。我们不留空壳页面——等正文、时间线、作品与思想四部分都写完，才会开放。</p>
+      <p class="artist-hero__intro">这位艺术家的档案尚未收齐。他的作品仍可在<a href="gallery.html" style="border-bottom:1px solid var(--line-strong)">图版画廊</a>中查看。</p>
       <div style="margin-top:22px"><a class="cta" href="artists.html" style="padding:12px 22px;font-size:12px">回到艺术家索引 →</a></div>
     </div></div>`;
     host.innerHTML = "";
