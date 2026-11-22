@@ -13,7 +13,7 @@
 <header class="wrap" style="padding-top:clamp(40px,6vw,72px);padding-bottom:26px;border-bottom:1px solid var(--line)">
   <p class="eyebrow">Artists</p>
   <h1 style="font-size:clamp(30px,4.6vw,46px);font-weight:400;letter-spacing:.1em;margin:12px 0 10px">艺术家索引</h1>
-  <p class="small" style="max-width:42rem">档案包含人物简介、生平时间线、艺术风格、代表作品、重要艺术思想与历史地位。十八位全部开放：从乔托到毕加索，每位含生平时间线、风格分析、代表作品与艺术史地位。</p>
+  <p class="small" style="max-width:42rem">档案包含人物简介、生平时间线、艺术风格、代表作品、重要艺术思想与历史地位。每位含生平时间线、风格分析、代表作品与艺术史地位。</p>
 </header>
 
 <main class="wrap" style="padding:clamp(30px,4vw,48px) 24px 90px">
@@ -63,11 +63,11 @@
         <div style="font-family:var(--sans);font-size:11px;letter-spacing:.1em;color:var(--ink-faint);margin-bottom:4px">${esc(a.life)} · 第${a.ch}章</div>
         <div style="font-size:13.5px;color:var(--ink-soft)">${esc(a.tag)}</div>
       </div>
-      <div style="font-family:var(--sans);font-size:10.5px;letter-spacing:.14em;color:var(--ink-faint)">撰写中</div>
+      <div style="font-family:var(--sans);font-size:10.5px;letter-spacing:.14em;color:var(--ink-faint)">待补</div>
     </div>`;
 
   $("#artistList").innerHTML = `
-    <p class="eyebrow" style="margin-bottom:8px">已开放 · ${ready.length}</p>
+    <p class="eyebrow" style="margin-bottom:8px">全部 · ${ready.length}</p>
     ${ready.map(row).join("")}
     <p class="eyebrow" style="margin:52px 0 8px">计划中 · ${planned.length}</p>
     ${planned.map(soon).join("")}`;
