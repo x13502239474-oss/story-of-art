@@ -141,7 +141,8 @@
     </div>`;
 
   /* ---------- 书签 ---------- */
-  const markItem = {type:"chapter", id:String(data.no), title:`第${data.no}章 ${data.title}`, sub:data.sub, img:"img/ch15/fig198.jpg", url:`read.html?id=${data.no}`};
+  const chCover = ((window.WORKS||[]).find(w=>w.ch===data.no)||{}).img || "img/ch15/fig198.jpg";
+  const markItem = {type:"chapter", id:String(data.no), title:`第${data.no}章 ${data.title}`, sub:data.sub, img:chCover, url:`read.html?id=${data.no}`};
   const btnMark = $("#btnMark");
   function syncMark(){
     const on = store.isMarked("chapter", String(data.no));
@@ -155,7 +156,7 @@
   };
 
   /* ---------- 最近阅读 ---------- */
-  store.pushRecent({type:"chapter", id:String(data.no), title:`第${data.no}章 ${data.title}`, sub:`${data.sub} · ${data.years}`, img:"img/ch15/fig198.jpg", url:`read.html?id=${data.no}`});
+  store.pushRecent({type:"chapter", id:String(data.no), title:`第${data.no}章 ${data.title}`, sub:`${data.sub} · ${data.years}`, img:chCover, url:`read.html?id=${data.no}`});
 
   /* ---------- 目录抽屉 ---------- */
   const railL = $("#railL"), scrim = $("#scrim");
