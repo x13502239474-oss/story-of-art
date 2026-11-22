@@ -289,7 +289,7 @@ a.period:hover .period__title{color:var(--burgundy);}
   transition:background .3s;
 }
 .person:hover{background:var(--paper-2);}
-.person__name{font-size:19px;letter-spacing:.05em;}
+.person__name{font-size:17px;letter-spacing:.02em;line-height:1.45;}
 .person__life{font-family:var(--sans);font-size:11px;letter-spacing:.1em;color:var(--ink-faint);}
 .person__tag{font-size:13px;color:var(--ink-soft);margin-top:6px;line-height:1.7;}
 
